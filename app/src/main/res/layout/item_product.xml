@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="position"
+            type="int" />
+        <variable
+            name="data"
+            type="com.example.basiccase.api.model.products.Products" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_3sdp"
+        app:cardBackgroundColor="@color/bg_gray"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDataImage"
+                dataImage="@{data.images[0].medium.url}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:scaleType="fitXY"
+                android:padding="1dp" />
+
+            <TextView
+                android:id="@+id/tvDataName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{data.title}"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{data.category.name}"
+                android:textColor="@color/gray" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_2sdp"
+                android:text="@{Integer.toString(data.price)+` TL`}"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

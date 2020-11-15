@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="position"
+            type="int" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="datashopnew"
+            type="com.example.basiccase.api.model.shop.Shop" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rootCardView"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_margin="@dimen/_10sdp"
+        card_view:cardCornerRadius="@dimen/_5sdp"
+        card_view:cardElevation="@dimen/_10sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_cover"
+                dataImage="@{datashopnew.cover.medium.url}"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/cardview_dark_background"
+                android:scaleType="fitXY"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHeight_percent="0.7"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+
+            <RelativeLayout
+                android:id="@+id/bg_profil"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/ic_circle"
+                android:backgroundTint="#D50000"
+                android:gravity="center"
+                android:keepScreenOn="false"
+
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@id/iv_cover">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/iv_text"
+                    textFirstLetter="@{datashopnew.name}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    android:textColor="@color/white"
+                    />
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_profile_image"
+                dataImageAsCircle="@{datashopnew.logo.url}"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:visibility="@{datashopnew.logo.url.empty ?  View.INVISIBLE : View.VISIBLE}"
+                card_view:layout_constraintBottom_toBottomOf="@+id/bg_profil"
+                card_view:layout_constraintEnd_toEndOf="@+id/bg_profil"
+                card_view:layout_constraintStart_toStartOf="@+id/bg_profil"
+                card_view:layout_constraintTop_toTopOf="@+id/bg_profil" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:hint="Deneme"
+                android:text="@{datashopnew.name}"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/bg_profil"
+                card_view:layout_constraintTop_toTopOf="@id/bg_profil" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_shop_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:hint="Deneme"
+                android:maxLines="1"
+                android:text="@{datashopnew.definition}"
+                android:textAllCaps="false"
+                android:textColor="@color/quantum_grey_600"
+                card_view:layout_constraintBottom_toBottomOf="@id/bg_profil"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/bg_profil"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_shop_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_shop_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:drawableStart="@drawable/ic_shirt"
+                android:drawablePadding="@dimen/_4sdp"
+                android:hint="Deneme"
+                android:maxLines="1"
+                android:text="@{datashopnew.productCount + ` ÜRÜN`}"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                card_view:drawableTint="#D50000"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@id/bg_profil"
+                card_view:layout_constraintTop_toBottomOf="@id/tv_shop_desc" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

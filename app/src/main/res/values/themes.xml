@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/winBackground</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/black</item>
+    </style>
+
+    <style name="DialogTheme" parent="AppTheme">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <style name="ActionBar"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/background</item>
+        <item name="background">@color/background</item>
+    </style>
+
+    <color name="winBackground">#98cb4a</color>
+    <color name="background">#f76d3c</color>
+
+    <style name="SearchViewTheme" parent="Widget.AppCompat.SearchView.ActionBar">
+        <item name="layout">@layout/search_view</item>
+        <item name="commitIcon">@drawable/ic_search_commit</item>
+        <item name="colorControlNormal">@color/material_light_active_icon</item>
+        <item name="colorControlHighlight">@color/material_ripple_light</item>
+        <item name="autoCompleteTextViewStyle">@style/AutoCompleteTextViewStyle</item>
+        <item name="suggestionRowLayout">@layout/search_view_suggestion_row</item>
+        <item name="android:maxWidth">9999dp</item>
+
+    </style>
+
+    <style name="AutoCompleteTextViewStyle" parent="Widget.AppCompat.Light.AutoCompleteTextView">
+        <item name="android:popupBackground">@drawable/search_suggestions_bg</item>
+        <item name="android:popupElevation">0dp</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="searchViewStyle">@style/SearchViewTheme</item>
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

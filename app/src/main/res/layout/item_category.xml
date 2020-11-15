@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="datacategory"
+            type="com.example.basiccase.api.model.categories.Category" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_3sdp"
+        app:cardBackgroundColor="@color/bg_gray"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCategoryImage"
+            dataImage="@{datacategory.logo.url}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:padding="1dp"
+            android:scaleType="fitXY" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategoryName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{datacategory.name}"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
+
+    </androidx.cardview.widget.CardView>
+</layout>

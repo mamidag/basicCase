@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="position"
+            type="int" />
+
+        <variable
+            name="datashopeditor"
+            type="com.example.basiccase.api.model.shop.Shop" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_220sdp"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@color/transparent_gray"
+            />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_layout"
+            android:layout_width="0dp"
+            android:outlineProvider="bounds"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:clipToPadding="false"
+            android:background="@drawable/ic_circle"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintWidth_percent="0.7">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_170sdp"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="@dimen/_10sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTitleShopItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_23sdp"
+                        android:gravity="center"
+                        android:text="@{datashopeditor.name}"
+                        android:textColor="@color/black"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDescShopItem"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:maxLines="2"
+                        android:text="@{datashopeditor.definition}"
+                        android:textColor="@color/gray"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toBottomOf="@id/tvTitleShopItem" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_images"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="horizontal"
+                        card_view:layout_constraintWidth_percent="0.6"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintTop_toBottomOf="@id/tvDescShopItem"
+                        />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_26sdp"
+                        android:text="@string/showcase"
+                        android:background="@drawable/btn_bg"
+                        android:textColor="#737272"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintEnd_toEndOf="@id/rv_images"
+                        card_view:layout_constraintStart_toStartOf="@id/rv_images"
+                        card_view:layout_constraintTop_toBottomOf="@+id/rv_images"
+                        card_view:layout_constraintWidth_percent="0.6" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTitleImage"
+            dataImageAsCircle="@{datashopeditor.logo.url}"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_circle"
+            card_view:layout_constraintBottom_toTopOf="@id/rl_layout"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="@id/rl_layout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
